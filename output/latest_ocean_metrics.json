@@ -1,0 +1,56 @@
+{
+  "metrics": {
+    "current_sst": 25.8,
+    "sst_anomaly": 0.4,
+    "significant_wave_height": 1.35,
+    "thermocline_depth_meters": 45.0,
+    "update_time_utc": "2026-09-23T03:00:00Z"
+  },
+  "stations": [
+    {
+      "id": "station-fuguijiao",
+      "name": "富貴角外海 (北部海域)",
+      "lat": 25.32,
+      "lng": 121.53,
+      "sst": 23.4,
+      "wave_height": 1.82,
+      "salinity": 34.12
+    },
+    {
+      "id": "station-hualien",
+      "name": "花蓮外海浮標 (東部深海)",
+      "lat": 24.01,
+      "lng": 121.72,
+      "sst": 26.2,
+      "wave_height": 1.15,
+      "salinity": 34.65
+    },
+    {
+      "id": "station-donggang",
+      "name": "東港大鵬灣口 (南部黑潮支流)",
+      "lat": 22.45,
+      "lng": 120.42,
+      "sst": 27.5,
+      "wave_height": 0.95,
+      "salinity": 34.28
+    },
+    {
+      "id": "station-penghu",
+      "name": "澎湖水道 (台灣海峽中段)",
+      "lat": 23.58,
+      "lng": 119.65,
+      "sst": 24.8,
+      "wave_height": 1.6,
+      "salinity": 34.4
+    },
+    {
+      "id": "station-kenting",
+      "name": "墾丁南灣 (珊瑚礁生態區)",
+      "lat": 21.95,
+      "lng": 120.76,
+      "sst": 28.1,
+      "wave_height": 0.85,
+      "salinity": 34.5
+    }
+  ]
+}
