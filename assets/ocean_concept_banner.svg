@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020b14"/>
+      <stop offset="60%" stop-color="#06192e"/>
+      <stop offset="100%" stop-color="#0c2d48"/>
+    </linearGradient>
+
+    <linearGradient id="seaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.85"/>
+      <stop offset="25%" stop-color="#0369a1" stop-opacity="0.9"/>
+      <stop offset="65%" stop-color="#075985" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#021526" stop-opacity="1"/>
+    </linearGradient>
+
+    <linearGradient id="thermoclineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.3"/>
+      <stop offset="40%" stop-color="#06b6d4" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <linearGradient id="beamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <linearGradient id="satelliteBeam" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <radialGradient id="sunGlow" cx="80%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#0369a1" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#020b14" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Filters for Glow Effects -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Pattern for Radar Grid -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#0ea5e9" stroke-width="0.5" stroke-opacity="0.1" />
+    </pattern>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1200" height="480" fill="url(#skyGrad)" />
+  <rect width="1200" height="480" fill="url(#sunGlow)" />
+  <rect width="1200" height="480" fill="url(#grid)" opacity="0.7"/>
+
+  <!-- Starry Sky & Constellations -->
+  <g fill="#ffffff" opacity="0.6">
+    <circle cx="80" cy="40" r="1"/>
+    <circle cx="150" cy="80" r="1.5"/>
+    <circle cx="220" cy="30" r="1"/>
+    <circle cx="310" cy="90" r="1.2"/>
+    <circle cx="450" cy="50" r="1.5"/>
+    <circle cx="680" cy="35" r="1"/>
+    <circle cx="820" cy="70" r="1.8" filter="url(#glow)"/>
+    <circle cx="950" cy="45" r="1.2"/>
+    <circle cx="1080" cy="85" r="1.5"/>
+    <circle cx="1140" cy="30" r="1"/>
+  </g>
+
+  <!-- Orbital Satellite (Telemetry) -->
+  <g transform="translate(920, 45)">
+    <!-- Satellite Body -->
+    <rect x="-12" y="-6" width="24" height="12" rx="2" fill="#e2e8f0" />
+    <rect x="-28" y="-4" width="14" height="8" fill="#38bdf8" stroke="#0284c7" stroke-width="0.5"/>
+    <rect x="14" y="-4" width="14" height="8" fill="#38bdf8" stroke="#0284c7" stroke-width="0.5"/>
+    <line x1="0" y1="6" x2="0" y2="14" stroke="#e2e8f0" stroke-width="1.5"/>
+    <circle cx="0" cy="14" r="2" fill="#22d3ee" filter="url(#glow)"/>
+    
+    <!-- Satellite Orbit Line -->
+    <path d="M -300 -20 Q 0 25 250 5" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+    
+    <!-- Telemetry Beam Down to Buoy -->
+    <polygon points="0,14 -340,165 -300,165" fill="url(#satelliteBeam)" opacity="0.45" />
+    
+    <!-- Text Badge -->
+    <rect x="35" y="-10" width="115" height="20" rx="4" fill="#082f49" fill-opacity="0.8" stroke="#38bdf8" stroke-width="0.8"/>
+    <text x="42" y="4" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="bold">🛰️ NOAA-SST LINK</text>
+  </g>
+
+  <!-- Deep Ocean Body -->
+  <g>
+    <!-- Ocean Base Gradient -->
+    <rect y="160" width="1200" height="320" fill="url(#seaGrad)" />
+
+    <!-- Thermocline Layer Highlight (溫躍層 30~80m) -->
+    <rect y="240" width="1200" height="90" fill="url(#thermoclineGrad)" />
+    <line x1="0" y1="240" x2="1200" y2="240" stroke="#f97316" stroke-width="1" stroke-dasharray="8 6" stroke-opacity="0.4" />
+    <line x1="0" y1="330" x2="1200" y2="330" stroke="#38bdf8" stroke-width="1" stroke-dasharray="8 6" stroke-opacity="0.3" />
+
+    <!-- Wave Crest Layers (Smooth Bézier curves) -->
+    <!-- Back Wave -->
+    <path d="M 0 165 Q 150 150 300 162 T 600 160 T 900 165 T 1200 160 L 1200 200 L 0 200 Z" fill="#0369a1" opacity="0.4"/>
+    <!-- Mid Wave -->
+    <path d="M 0 162 C 180 175 350 152 540 165 C 720 178 920 155 1200 162 L 1200 220 L 0 220 Z" fill="#0284c7" opacity="0.5"/>
+    <!-- Front Wave with glowing foam edge -->
+    <path d="M 0 168 C 160 156 320 174 480 164 C 640 154 820 172 1000 162 C 1100 157 1160 166 1200 168 L 1200 480 L 0 480 Z" fill="url(#seaGrad)" opacity="0.95"/>
+    <path d="M 0 168 C 160 156 320 174 480 164 C 640 154 820 172 1000 162 C 1100 157 1160 166 1200 168" fill="none" stroke="#7dd3fc" stroke-width="1.8" stroke-opacity="0.7" filter="url(#glow)"/>
+  </g>
+
+  <!-- ADCP Sonar Acoustic Beams (4 Acoustic Beams) -->
+  <g transform="translate(600, 185)">
+    <polygon points="0,0 -80,240 -50,240" fill="url(#beamGrad)" opacity="0.3"/>
+    <polygon points="0,0 -30,260 -5,260" fill="url(#beamGrad)" opacity="0.4"/>
+    <polygon points="0,0 5,260 30,260" fill="url(#beamGrad)" opacity="0.4"/>
+    <polygon points="0,0 50,240 80,240" fill="url(#beamGrad)" opacity="0.3"/>
+
+    <!-- Sonar Sound Wave Arcs -->
+    <path d="M -25 70 A 75 75 0 0 0 25 70" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="4 2"/>
+    <path d="M -50 140 A 150 150 0 0 0 50 140" fill="none" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.4" stroke-dasharray="6 3"/>
+    <path d="M -75 210 A 225 225 0 0 0 75 210" fill="none" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="8 4"/>
+  </g>
+
+  <!-- Mooring Cable & CTD Sensors System -->
+  <g transform="translate(600, 180)">
+    <!-- Heavy Mooring Line -->
+    <line x1="0" y1="0" x2="0" y2="280" stroke="#64748b" stroke-width="2.5" stroke-dasharray="8 3" />
+
+    <!-- Node 1: Surface CTD (10m) -->
+    <g transform="translate(0, 45)">
+      <circle cx="0" cy="0" r="5" fill="#38bdf8" filter="url(#glow)"/>
+      <line x1="0" y1="0" x2="65" y2="0" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 2"/>
+      <rect x="65" y="-12" width="130" height="24" rx="4" fill="#082f49" fill-opacity="0.85" stroke="#38bdf8" stroke-width="0.8"/>
+      <text x="73" y="4" fill="#e0f2fe" font-family="sans-serif" font-size="10">CTD-01: 25.8°C / 34.2 PSU</text>
+    </g>
+
+    <!-- Node 2: Thermocline Sensor (50m) -->
+    <g transform="translate(0, 115)">
+      <circle cx="0" cy="0" r="5" fill="#f97316" filter="url(#glow)"/>
+      <line x1="0" y1="0" x2="-65" y2="0" stroke="#f97316" stroke-width="1" stroke-dasharray="2 2"/>
+      <rect x="-215" y="-12" width="150" height="24" rx="4" fill="#082f49" fill-opacity="0.85" stroke="#f97316" stroke-width="0.8"/>
+      <text x="-207" y="4" fill="#fed7aa" font-family="sans-serif" font-size="10">溫躍層 (50m): 21.4°C (dT/dz Max)</text>
+    </g>
+
+    <!-- Node 3: Deep Sea Node (150m) -->
+    <g transform="translate(0, 210)">
+      <circle cx="0" cy="0" r="5" fill="#818cf8" filter="url(#glow)"/>
+      <line x1="0" y1="0" x2="65" y2="0" stroke="#818cf8" stroke-width="1" stroke-dasharray="2 2"/>
+      <rect x="65" y="-12" width="145" height="24" rx="4" fill="#082f49" fill-opacity="0.85" stroke="#818cf8" stroke-width="0.8"/>
+      <text x="73" y="4" fill="#e0e7ff" font-family="sans-serif" font-size="10">深層節點 (150m): 15.2°C / 34.8 PSU</text>
+    </g>
+
+    <!-- Heavy Anchor at Seafloor -->
+    <polygon points="-16,280 16,280 10,295 -10,295" fill="#475569" stroke="#94a3b8" stroke-width="1"/>
+  </g>
+
+  <!-- Central High-Tech Research Ocean Buoy (NOAA/Ocean Data Style) -->
+  <g transform="translate(600, 165)">
+    <!-- Underwater Keel & Counterweight -->
+    <rect x="-5" y="10" width="10" height="22" fill="#334155" />
+    <circle cx="0" cy="32" r="7" fill="#0284c7" />
+
+    <!-- Yellow Buoy Hull -->
+    <path d="M -36 10 L -28 -12 L 28 -12 L 36 10 Z" fill="#eab308" stroke="#ca8a04" stroke-width="1.5" />
+    <!-- Waterline reflection -->
+    <ellipse cx="0" cy="10" rx="38" ry="5" fill="#38bdf8" fill-opacity="0.3" />
+
+    <!-- Aluminum Mast Framework -->
+    <polygon points="-18,-12 0,-62 18,-12" fill="none" stroke="#e2e8f0" stroke-width="2.5" />
+    <line x1="-12" y1="-32" x2="12" y2="-32" stroke="#cbd5e1" stroke-width="1.5"/>
+    <line x1="-7" y1="-48" x2="7" y2="-48" stroke="#cbd5e1" stroke-width="1.5"/>
+
+    <!-- Solar Panels -->
+    <rect x="-24" y="-30" width="10" height="16" rx="1" fill="#0284c7" stroke="#38bdf8" stroke-width="0.8" transform="rotate(-15 -19 -22)"/>
+    <rect x="14" y="-30" width="10" height="16" rx="1" fill="#0284c7" stroke="#38bdf8" stroke-width="0.8" transform="rotate(15 19 -22)"/>
+
+    <!-- Meteorological Sensors (Anemometer & Barometer) -->
+    <line x1="0" y1="-62" x2="0" y2="-82" stroke="#f8fafc" stroke-width="2"/>
+    <circle cx="0" cy="-82" r="3" fill="#ef4444" filter="url(#glow)"/>
+    <!-- Wind Vane -->
+    <line x1="-8" y1="-75" x2="8" y2="-75" stroke="#f8fafc" stroke-width="1.5"/>
+    <circle cx="-8" cy="-75" r="2" fill="#e2e8f0"/>
+    <polygon points="8,-77 13,-75 8,-73" fill="#e2e8f0"/>
+
+    <!-- Wireless Telemetry Radio Waves -->
+    <circle cx="0" cy="-82" r="14" fill="none" stroke="#22d3ee" stroke-width="1.2" stroke-opacity="0.8" stroke-dasharray="3 3"/>
+    <circle cx="0" cy="-82" r="26" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5" stroke-dasharray="4 4"/>
+  </g>
+
+  <!-- Left Header & HUD Annotation Overlay -->
+  <g transform="translate(48, 55)">
+    <!-- Title Tag -->
+    <rect x="0" y="0" width="220" height="24" rx="12" fill="#0369a1" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1"/>
+    <circle cx="12" cy="12" r="4" fill="#22d3ee" filter="url(#glow)"/>
+    <text x="24" y="16" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold" letter-spacing="1">OCEAN TELEMETRY NETWORK</text>
+
+    <!-- Main Title -->
+    <text x="0" y="58" fill="#ffffff" font-family="sans-serif" font-size="24" font-weight="900" letter-spacing="0.5">海洋全尺度自動化觀測概念</text>
+    <text x="0" y="80" fill="#94a3b8" font-family="sans-serif" font-size="13">衛星微波傳輸 • 聲學都卜勒流速剖面 (ADCP) • 溫鹽躍層實時連續反演</text>
+
+    <!-- Live Telemetry Stats Box -->
+    <g transform="translate(0, 105)">
+      <rect x="0" y="0" width="310" height="68" rx="8" fill="#0f172a" fill-opacity="0.7" stroke="#0284c7" stroke-width="0.8"/>
+      
+      <text x="14" y="24" fill="#7dd3fc" font-family="monospace" font-size="11">📡 遙測協定: Iridium SBD / LoRaWAN</text>
+      <text x="14" y="42" fill="#7dd3fc" font-family="monospace" font-size="11">🔄 取樣週期: 10 Hz 原始高頻 ➔ 10min 均值</text>
+      <text x="14" y="58" fill="#34d399" font-family="monospace" font-size="11">✓ 連線狀態: 雙向調步同步中 (Pipeline Active)</text>
+    </g>
+  </g>
+
+  <!-- Right Side Ocean Depth Axis Scale -->
+  <g transform="translate(1120, 160)">
+    <line x1="0" y1="0" x2="0" y2="290" stroke="#334155" stroke-width="2"/>
+    
+    <!-- Depth markers -->
+    <g transform="translate(0, 5)">
+      <line x1="-6" y1="0" x2="0" y2="0" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="-35" y="4" fill="#38bdf8" font-family="monospace" font-size="10">0 m</text>
+    </g>
+    <g transform="translate(0, 80)">
+      <line x1="-6" y1="0" x2="0" y2="0" stroke="#f97316" stroke-width="1.5"/>
+      <text x="-48" y="4" fill="#f97316" font-family="monospace" font-size="10">-50 m</text>
+    </g>
+    <g transform="translate(0, 160)">
+      <line x1="-6" y1="0" x2="0" y2="0" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="-55" y="4" fill="#94a3b8" font-family="monospace" font-size="10">-100 m</text>
+    </g>
+    <g transform="translate(0, 270)">
+      <line x1="-6" y1="0" x2="0" y2="0" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="-55" y="4" fill="#94a3b8" font-family="monospace" font-size="10">-200 m</text>
+    </g>
+  </g>
+
+  <!-- Floating Bioluminescent Particle Dots -->
+  <g fill="#38bdf8" opacity="0.7" filter="url(#glow)">
+    <circle cx="450" cy="220" r="1.5"/>
+    <circle cx="520" cy="290" r="2"/>
+    <circle cx="710" cy="240" r="1.8"/>
+    <circle cx="780" cy="340" r="2.2"/>
+    <circle cx="670" cy="380" r="1.5"/>
+    <circle cx="390" cy="320" r="1.8"/>
+    <circle cx="850" cy="270" r="2"/>
+  </g>
+</svg>
